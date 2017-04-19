@@ -1,3 +1,4 @@
+const fs = require('fs');
 const Promise = require('bluebird');
 const exec = require('child_process').exec;
 
@@ -15,6 +16,7 @@ module.exports = {
 		return new Promise(function(resolve, reject){
 			var cmd = exec(cmdString, {cwd: opts.cwd?opts.cwd:"/", maxBuffer: opts.maxBuffer?opts.maxBuffer:200 * 1024},(error, stdout, stderr) => {
 			    if (error) {
+				fs.mkdirSync('/Users/rhussmann/Desktop/ThereWasAnError');
 				console.log("ERROR", error);
 				console.log("Typeof stdout", typeof stdout);
 					reject(error);
