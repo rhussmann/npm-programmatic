@@ -14,7 +14,9 @@ module.exports = {
 
 		return new Promise(function(resolve, reject){
 			var cmd = exec(cmdString, {cwd: opts.cwd?opts.cwd:"/", maxBuffer: opts.maxBuffer?opts.maxBuffer:200 * 1024},(error, stdout, stderr) => {
-				if (error) {
+			    if (error) {
+				console.log("ERROR", error);
+				console.log("Typeof stdout", typeof stdout);
 					reject(error);
 				} else {
 					resolve(true);
